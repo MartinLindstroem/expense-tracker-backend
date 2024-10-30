@@ -7,10 +7,11 @@ import {
   updateExpenseController,
   deleteExpenseController,
 } from "../../controllers/expenseController";
+import authMiddleware from "../../middlewares/authMiddleware";
 
 const expenseRouter: Router = Router();
 
-expenseRouter.get("/:userId", getAllExpensesController);
+expenseRouter.get("/", authMiddleware, getAllExpensesController);
 
 expenseRouter.get("/:userId/:year", getExpensesFromYearController);
 
