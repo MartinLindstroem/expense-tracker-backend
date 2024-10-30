@@ -5,11 +5,11 @@ import {
   createExpense,
   updateExpense,
   deleteExpense,
-} from "../database/expenses";
+} from "../services/expenseService";
 
 export const getAllExpensesController = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await getAllUserExpenses(req.params.userId);
+    const result = await getAllUserExpenses(req.body.user.userId);
 
     res.status(200).json(result.rows);
   } catch (error) {
