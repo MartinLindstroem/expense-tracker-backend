@@ -1,4 +1,4 @@
-CREATE DATABASE expense_tracker;
+CREATE DATABASE expense_tracker_dev;
 
 CREATE TABLE IF NOT EXISTS users(
     user_id SERIAL PRIMARY KEY,
