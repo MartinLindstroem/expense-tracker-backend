@@ -3,7 +3,7 @@ import { createUserController, loginController } from "../../controllers/authCon
 
 const authRouter: Router = Router();
 
-authRouter.post("/register", createUserController);
+authRouter.post("/signup", createUserController);
 
 authRouter.post("/login", loginController);
 
