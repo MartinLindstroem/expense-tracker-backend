@@ -1,5 +1,6 @@
 import express, { Express, Request, Response, NextFunction } from "express";
 import "./config/env";
+import cors from "cors";
 import v1Router from "./v1/routes";
 import expenseRouter from "./v1/routes/expenseRoutes";
 import categoryRouter from "./v1/routes/categoryRoutes";
@@ -8,7 +9,10 @@ import errorMiddleware from "./middlewares/errorMiddleware";
 import { HttpException } from "./utils/customError";
 const cookieParser = require("cookie-parser");
 
+console.log("CLIENT_URL", process.env.CLIENT_URL);
+
 const app: Express = express();
+app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/v1", v1Router);
