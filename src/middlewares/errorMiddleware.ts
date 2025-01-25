@@ -13,7 +13,7 @@ function errorMiddleware(error: HttpException, req: Request, res: Response, next
     stack: error.stack,
   });
 
-  res.status(status).send({ status, message, error: errors });
+  res.status(status).json({ msg: message });
 }
 
 export default errorMiddleware;
