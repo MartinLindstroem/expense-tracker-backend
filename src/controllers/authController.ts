@@ -29,7 +29,16 @@ export const loginController = async (req: Request, res: Response, next: NextFun
       maxAge: 60 * 60 * 1000,
     });
 
-    res.status(200).json("Log in successfull");
+    res.status(200).json({ msg: "Success", user });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const logoutController = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    res.clearCookie("token");
+    res.status(200).json({ msg: "Logged out" });
   } catch (error) {
     next(error);
   }
