@@ -2,6 +2,6 @@ import dotenv from "dotenv";
 
 let envFile;
 process.env.NODE_ENV === "development"
-  ? (envFile = ".env.dev")
-  : (envFile = ".env.prod");
+  ? (envFile = ".env.development")
+  : (envFile = ".env.production");
 dotenv.config({ path: envFile });

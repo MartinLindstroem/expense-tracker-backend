@@ -7,7 +7,8 @@ import categoryRouter from "./v1/routes/categoryRoutes";
 import authRouter from "./v1/routes/authRoutes";
 import errorMiddleware from "./middlewares/errorMiddleware";
 import { HttpException } from "./utils/customError";
-const cookieParser = require("cookie-parser");
+import cookieParser from "cookie-parser";
+import logger from "./logger/logger";
 
 console.log("CLIENT_URL", process.env.CLIENT_URL);
 

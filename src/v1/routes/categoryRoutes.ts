@@ -5,15 +5,16 @@ import {
   updateCategoryController,
   deleteCategoryController,
 } from "../../controllers/categoryController";
+import authMiddleware from "../../middlewares/authMiddleware";
 
 const categoryRouter: Router = Router();
 
-categoryRouter.get("/:userId", getCategoriesController);
+categoryRouter.get("/", authMiddleware, getCategoriesController);
 
-categoryRouter.post("/create", createCategoryController);
+categoryRouter.post("/create", authMiddleware, createCategoryController);
 
-categoryRouter.put("/update", updateCategoryController);
+categoryRouter.put("/update", authMiddleware, updateCategoryController);
 
-categoryRouter.delete("/delete", deleteCategoryController);
+categoryRouter.delete("/delete", authMiddleware, deleteCategoryController);
 
 export default categoryRouter;

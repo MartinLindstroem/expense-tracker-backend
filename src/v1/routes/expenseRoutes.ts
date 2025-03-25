@@ -13,11 +13,11 @@ const expenseRouter: Router = Router();
 
 expenseRouter.get("/", authMiddleware, getAllExpensesController);
 
-expenseRouter.get("/:userId/:year", getExpensesFromYearController);
+expenseRouter.get("/:year", authMiddleware, getExpensesFromYearController);
 
 expenseRouter.get("/:userId/:month/:year", getExpensesForMonthAndYearController);
 
-expenseRouter.post("/create", createExpenseController);
+expenseRouter.post("/create", authMiddleware, createExpenseController);
 
 expenseRouter.put("/update", updateExpenseController);
 

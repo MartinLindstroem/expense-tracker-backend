@@ -3,6 +3,7 @@ import {
   createUserController,
   loginController,
   logoutController,
+  refreshTokenController,
 } from "../../controllers/authController";
 
 const authRouter: Router = Router();
@@ -12,6 +13,8 @@ authRouter.post("/signup", createUserController);
 authRouter.post("/login", loginController);
 
 authRouter.post("/logout", logoutController);
+
+authRouter.post("/refresh-token", refreshTokenController);
 
 // expenseRouter.get("/:userId/:month/:year", getExpensesForMonthAndYearController);
 
